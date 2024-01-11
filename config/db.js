@@ -8,7 +8,8 @@ const db = new Sequelize(process.env.DB_NAME,process.env.DB_USER,process.env.DB_
     dialect: 'mysql',
     define:{
         timestamps:false
-    }
+    },
+    timezone: '-05:00' 
 });
 
 export default db

@@ -1,23 +1,23 @@
-import {DataTypes} from "sequelize";
+import {DataTypes, Sequelize } from "sequelize";
 import db from "../config/db.js";
 
 const Transaction = db.define('transactions',{
     id: {
-        type: DataTypes.UUIDV4,
+        type: DataTypes.UUID,
+        defaultValue: Sequelize.UUIDV4,
         primaryKey: true,
         allowNull: false,
-        defaultValue: DataTypes.UUIDV4,
     },
     operation_date: {
-        type: DataTypes.STRING,
-        allowNull:false,
+        type: DataTypes.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
     },
     amount_paid:{
-        type: DataTypes.STRING,
+        type: DataTypes.FLOAT,
         allowNull:false,
     },
     deposited_amount:{
-        type: DataTypes.STRING,
+        type: DataTypes.FLOAT,
         allowNull:false,
     },
 
