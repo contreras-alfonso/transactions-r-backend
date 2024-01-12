@@ -1,9 +1,12 @@
-import express from 'express'
-import { getAllByCategory, getAllById } from '../controllers/transactionController.js';
+import express from "express";
+import {
+  getAllByCategory,
+  getAllByCustomerId,
+} from "../controllers/transactionController.js";
 
-const router = express.Router()
+const router = express.Router();
 
-router.get('/getAllByCustomerId/:id',getAllById);
-router.get('/getAllByCategory/:category',getAllByCategory);
+router.get("/getAllByCustomerId/:id/:page", getAllByCustomerId);
+router.get("/getAllByCategory/:category/:page", getAllByCategory);
 
-export default router
+export default router;
